@@ -1,13 +1,11 @@
-# Standup Comedy
+# AWK Workshop
 
-> "It is called standup because your code is a joke" and other one-liners.
->
-> -- <cite>Me</cite>
+This is a short workshop for helping people to learn and use AWK in a practical way.
 
 ## Quickstart
 
 ### Clone the repo
-`git clone https://github.com/theoboldalex/standup_comedy.git` 
+`git clone https://github.com/theoboldalex/awk_workshop.git` 
 
 ### Inspect the data
 `wc -l worker_bees.csv`
@@ -17,9 +15,8 @@
 `cat worker_bees.csv`
 
 ### Work through the exercises
-There are a number of exercises listed below. Solve them in any way you see fit. 
-There is no wrong or right way to do this. Just use the tools you are most comfortable with, practice and pick up 
-some new tools, tips and utilities along the way.
+There are a number of exercises listed below. Solve them in any way you see fit. You don't _have_ to use AWK, but it _is_ particularly well suited for the task.
+There is no wrong or right way to do this. Just use the tools you are most comfortable with, whether that is AWK, Perl, Bash or anything else. It is supposed to be fun!
 
 > [!WARNING]
 > If you accidentally (or purposefully) bork your input file, simply generate a new one by running `make`.
@@ -131,13 +128,13 @@ sed 's/,/\t/g' worker_bees.csv > worker_bees.tsv
 ```
 </details>
 
-### Make a new row of data right below the headers with your name and the job title `Scrum Mainer`
+### Make a new row of data right below the headers with your name and the job title `Scrum Master`
 <details>
     <summary>Expand Solution</summary>
 
 #### awk
 ```bash
-awk -F, 'NR == 1 {print; print "Alex,Theobold,alex.theobold@shitpost.ing,1987-06-30,\"Scrum Mainer\",UK,69420"} NR > 1' worker_bees.csv > tmp && mv tmp worker_bees.csv
+awk -F, 'NR == 1 {print; print "Alex,Theobold,alex.theobold@shitpost.ing,1987-06-30,\"Scrum Master\",UK,69420"} NR > 1' worker_bees.csv > tmp && mv tmp worker_bees.csv
 ```
 </details>
 
