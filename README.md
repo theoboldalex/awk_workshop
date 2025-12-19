@@ -5,7 +5,9 @@ This is a short workshop for helping people to learn and use AWK in a practical 
 ## Quickstart
 
 ### Clone the repo
-`git clone https://github.com/theoboldalex/awk_workshop.git` 
+```shell
+git clone https://github.com/theoboldalex/awk_workshop.git
+```
 
 ### Inspect the data
 `wc -l worker_bees.csv`
