@@ -124,13 +124,23 @@ awk -F, '/Lead Developer/ && $7 = "US" {c+=1} END{print c}' worker_bees.csv
 ```
 </details>
 
-### 9. Make a new row of data right below the headers with your name and the job title `Scrum Master`
+### 9. Make a new row of data right below the headers with your name and details
 <details>
     <summary>Expand Solution</summary>
 
 #### awk
 ```bash
 awk -F, 'NR == 1 {print; print "Alex,Theobold,alex.theobold@shitpost.ing,1987-06-30,\"Scrum Master\",UK,69420"} NR > 1' worker_bees.csv > tmp && mv tmp worker_bees.csv
+```
+</details>
+
+### 10. Remove any workers that were not born on a leap year
+<details>
+    <summary>Expand Solution</summary>
+
+#### awk
+```bash
+echo | awk '{print "good" " " "luck!"}'
 ```
 </details>
 
