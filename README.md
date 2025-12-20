@@ -134,7 +134,7 @@ awk -F, 'NR == 1 {print; print "Alex,Theobold,alex.theobold@shitpost.ing,1987-06
 ```
 </details>
 
-### 10. Remove any workers that were not born on a leap year
+### 10. Remove any worker bees that were not born on a leap year
 <details>
     <summary>Expand Solution</summary>
 
