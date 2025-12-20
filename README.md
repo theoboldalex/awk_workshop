@@ -1,4 +1,4 @@
-# AWK Workshop
+# 📜 AWK Workshop
 
 This is a short workshop for helping people to learn and use AWK in a practical way.
 
