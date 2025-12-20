@@ -10,11 +10,15 @@ git clone https://github.com/theoboldalex/awk_workshop.git
 ```
 
 ### Inspect the data
-`wc -l worker_bees.csv`
-
-`head -n 1 worker_bees.csv`
-
-`cat worker_bees.csv`
+```shell
+wc -l worker_bees.csv
+```
+```shell
+head -n 1 worker_bees.csv
+```
+```shell
+cat worker_bees.csv
+```
 
 ### Work through the exercises
 There are a number of exercises listed below. Solve them in any way you see fit. You don't _have_ to use AWK, but it _is_ particularly well suited for the task.
@@ -26,9 +30,9 @@ There is no wrong or right way to do this. Just use the tools you are most comfo
 ## Exercises
 
 > [!NOTE]
-> From here on out we will refer to `worker_bees.csv` the "input file".
+> From here on out we will refer to `worker_bees.csv` as the "input file".
 
-### Print the number of columns contained in the input file.
+### 1. Print the number of columns contained in the input file.
 <details>
     <summary>Expand Solution</summary>
 
@@ -47,7 +51,7 @@ head -n 1 worker_bees.csv | tr -dc ',\n' | wc -c
 ```
 </details>
 
-### What is the higest salary of all worker bees?
+### 2. What is the higest salary of all worker bees?
 <details>
     <summary>Expand Solution</summary>
 
@@ -58,7 +62,7 @@ awk -F, 'NR > 1 && $7 > max {max=$7} END{print max}' worker_bees.csv
 
 </details>
 
-### What is the total yearly salary of the worker bees based in France?
+### 3. What is the total yearly salary of the worker bees based in France?
 <details>
     <summary>Expand Solution</summary>
 
@@ -68,7 +72,7 @@ awk -F, '$6 ~ /FR/ {ts+=$7} END{print ts}' worker_bees.csv
 ```
 </details>
 
-### What is the job title of the oldest worker bee?
+### 4. What is the job title of the oldest worker bee?
 <details>
     <summary>Expand Solution</summary>
 
@@ -78,7 +82,7 @@ awk -F, 'NR > 1 {print $4 " " $5}' worker_bees.csv | sort | head -n 1
 ```
 </details>
 
-### Which country has the highest headcount?
+### 5. Which country has the highest headcount?
 <details>
     <summary>Expand Solution</summary>
 
@@ -88,7 +92,7 @@ awk -F, 'NR > 1 {ciso[$6]++} END{for (c in ciso){print c ": " ciso[c]}}' worker_
 ```
 </details>
 
-### Print the full name and job title of all worker bees that have `fred` in their name. 
+### 6. Print the full name and job title of all worker bees that have `fred` in their name. 
 > [!IMPORTANT]
 > Beware some worker bee names may not be all lower cased.
 <details>
@@ -100,7 +104,7 @@ awk -F, '/[fF]red/ {print $1 " " $2 " " $5}' worker_bees.csv
 ```
 </details>
 
-### What is the most common job title for a worker bee? Print a table of all job titles and the frequency with which they appear
+### 7. What is the most common job title for a worker bee? Print a table of all job titles and the frequency with which they appear
 <details>
     <summary>Expand Solution</summary>
 
@@ -110,7 +114,7 @@ awk -F, 'NR > 1 {titles[$5]++} END{for (t in titles) {print t ": " titles[t]}}' 
 ```
 </details>
 
-### How many lead developers are there working from the US?
+### 8. How many lead developers are there working from the US?
 <details>
     <summary>Expand Solution</summary>
 
@@ -120,17 +124,7 @@ awk -F, '/Lead Developer/ && $7 = "US" {c+=1} END{print c}' worker_bees.csv
 ```
 </details>
 
-### Make a copy of the input file but convert the format from `csv` to `tsv`
-<details>
-    <summary>Expand Solution</summary>
-
-#### sed
-```bash
-sed 's/,/\t/g' worker_bees.csv > worker_bees.tsv
-```
-</details>
-
-### Make a new row of data right below the headers with your name and the job title `Scrum Master`
+### 9. Make a new row of data right below the headers with your name and the job title `Scrum Master`
 <details>
     <summary>Expand Solution</summary>
 
